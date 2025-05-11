@@ -3,8 +3,13 @@ const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
+const cors = require('cors')
+server.use(cors()) // Libera CORS
+
 server.use(middlewares)
 server.use(router)
-server.listen(process.env.PORT || 3001, () => {
-  console.log('JSON Server is running')
+
+const PORT = process.env.PORT || 3001
+server.listen(PORT, () => {
+  console.log(`JSON Server rodando na porta ${PORT}`)
 })
