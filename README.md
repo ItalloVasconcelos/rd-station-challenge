@@ -91,11 +91,25 @@ Para completar este teste, você deve concentrar-se principalmente em três arqu
 6. O serviço deve ser capaz de lidar com diferentes tipos de preferências e funcionalidades selecionadas pelo usuário.
 7. O serviço deve ser modular e facilmente extensível para futuras atualizações e adições de funcionalidades.
 
+
 Certifique-se de que todos os critérios de aceite são atendidos durante o desenvolvimento do projeto.
+
+## O que foi desenvolvido
+1. Implementação da Lógica de Recomendação
+2. Criação de Novos Testes para o recommendation.service.js
+3. Aprimoramento do Design e Criação de Componentes Reutilizáveis
+4. Configuração de CI/CD com GitHub Actions
+5. Deploy da Aplicação Utilizando Vercel
+
+## Deploy
+
+A aplicação foi implantada no Vercel. Acesse o site ao vivo aqui:
+[RD Station - Recomendador de Produtos](https://rd-station-challenge.vercel.app)
+
 
 ## Autor
 
-Desenvolvido por [Seu Nome]
+Desenvolvido por [Itallo Vasconcelos](https://github.com/ItalloVasconcelos)
 
 ## Licença
 
