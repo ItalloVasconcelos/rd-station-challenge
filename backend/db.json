@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "RD Station CRM",
+      "description": "Seu processo de vendas organizado e escalável",
       "category": "Vendas",
       "preferences": [
         "Integração fácil com ferramentas de e-mail",
@@ -18,6 +19,7 @@
     {
       "id": 2,
       "name": "RD Station Marketing",
+      "description": "Automação de Marketing que cabe no bolso",
       "category": "Marketing",
       "preferences": [
         "Automação de marketing",
@@ -33,6 +35,7 @@
     {
       "id": 3,
       "name": "RD Conversas",
+      "description": "Atendimento digital ágil e em um só lugar",
       "category": "Omnichannel",
       "preferences": [
         "Integração com chatbots",
@@ -48,6 +51,7 @@
     {
       "id": 4,
       "name": "RD Mentor AI",
+      "description": "Mentoria com AI, para facilitar seus processos.",
       "category": "Uso de Inteligência Artificial",
       "preferences": [
         "Análise preditiva de dados",
