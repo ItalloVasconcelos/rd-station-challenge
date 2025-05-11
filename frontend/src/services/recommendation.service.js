@@ -12,9 +12,20 @@ const getRecommendations = (
   const {
       selectedPreferences = [],
       selectedFeatures = [],
-      selectedRecommendationType,
+      selectedRecommendationType = 'MultipleProducts',
   } = formData;
 
+    if (
+        selectedRecommendationType === 'MultipleProducts' &&
+        selectedPreferences.length === 0 &&
+        selectedFeatures.length === 0
+    ) {
+        return products;
+    }
+  const noFilterSelected = selectedPreferences.length === 0 && selectedFeatures.length === 0;
+  if (selectedRecommendationType === 'MultipleProduct' && noFilterSelected) {
+      return products;
+  }
   const scored = products
       .map((product) => {
     const score = [
@@ -27,6 +38,8 @@ const getRecommendations = (
       .filter((product) => product.score > 0)
 
   if (selectedRecommendationType === 'SingleProduct') {
+      if (scored.length === 0) return[];
+
     const maxScore = Math.max(...scored.map((p) => p.score));
     return [scored.filter((p) => p.score === maxScore).pop()];
   }
