@@ -104,12 +104,12 @@ Certifique-se de que todos os critérios de aceite são atendidos durante o dese
 ## Deploy
 
 A aplicação foi implantada no Vercel. Acesse o site ao vivo aqui:
-RD Station - Recomendador de Produtos [https://rd-station-challenge.vercel.app]
+[RD Station - Recomendador de Produtos](https://rd-station-challenge.vercel.app)
 
 
 ## Autor
 
-Desenvolvido por Itallo Vasconcelos [Itallo Vasconcelos]
+Desenvolvido por [Itallo Vasconcelos](https://github.com/ItalloVasconcelos)
 
 ## Licença
 
