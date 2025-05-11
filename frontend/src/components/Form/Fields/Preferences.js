@@ -21,8 +21,8 @@ function Preferences({
 
   return (
     <div className="mb-4">
-      <h2 className="text-lg font-bold mb-2">Preferências:</h2>
-      <ul>
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">Preferências:</h2>
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {preferences.map((preference, index) => (
           <li key={index} className="mb-2">
             <Checkbox
@@ -31,7 +31,10 @@ function Preferences({
               onChange={() => handlePreferenceChange(preference)}
               className="text-blue-500"
             >
-              {preference}
+              <div className="text-sm text-gray-700">
+
+                {preference}
+              </div>
             </Checkbox>
           </li>
         ))}
