@@ -1,12 +1,39 @@
 // getRecommendations.js
 
 const getRecommendations = (
-  formData = { selectedPreferences: [], selectedFeatures: [] },
+  formData =
+      { selectedPreferences: [],
+        selectedFeatures: [],
+        selectedRecommendationTypes: 'MultipleProducts'},
   products
 ) => {
-  /**
-   * Crie aqui a lógica para retornar os produtos recomendados.
-   */
+  if (!products?.length) return [];
+
+  const {
+      selectedPreferences = [],
+      selectedFeatures = [],
+      selectedRecommendationType,
+  } = formData;
+
+  const scored = products
+      .map((product) => {
+    const score = [
+        ...selectedPreferences.filter((pref) => product.preferences.includes(pref)),
+        ...selectedFeatures.filter((feat) => product.features.includes(feat))
+    ].length;
+
+        return { ...product, score };
+  })
+      .filter((product) => product.score > 0)
+
+  if (selectedRecommendationType === 'SingleProduct') {
+    const maxScore = Math.max(...scored.map((p) => p.score));
+    return [scored.filter((p) => p.score === maxScore).pop()];
+  }
+  return scored.sort((a, b) => b.score - a.score);
+
 };
 
-export default { getRecommendations };
+const recommendationsService = { getRecommendations }
+
+export default recommendationsService;
