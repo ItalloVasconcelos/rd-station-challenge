@@ -10,8 +10,8 @@ describe('recommendationService', () => {
     };
 
     const recommendations = recommendationService.getRecommendations(
-      formData,
-      mockProducts
+        formData,
+        mockProducts
     );
 
     expect(recommendations).toHaveLength(1);
@@ -33,8 +33,8 @@ describe('recommendationService', () => {
     };
 
     const recommendations = recommendationService.getRecommendations(
-      formData,
-      mockProducts
+        formData,
+        mockProducts
     );
 
     expect(recommendations).toHaveLength(2);
@@ -58,8 +58,8 @@ describe('recommendationService', () => {
     };
 
     const recommendations = recommendationService.getRecommendations(
-      formData,
-      mockProducts
+        formData,
+        mockProducts
     );
 
     expect(recommendations).toHaveLength(1);
@@ -73,11 +73,93 @@ describe('recommendationService', () => {
     };
 
     const recommendations = recommendationService.getRecommendations(
-      formData,
-      mockProducts
+        formData,
+        mockProducts
     );
 
     expect(recommendations).toHaveLength(1);
     expect(recommendations[0].name).toBe('RD Conversas');
+  });
+
+  // NOVOS TESTES:
+
+  test('Retorna recomendação vazia se selecionar apenas tipo SingleProduct', () => {
+    const formData = {
+      selectedPreferences: [],
+      selectedFeatures: [],
+      selectedRecommendationType: 'SingleProduct',
+    };
+
+    const recommendations = recommendationService.getRecommendations(
+        formData,
+        mockProducts
+    );
+
+    expect(recommendations).toEqual([]);
+  });
+
+  test('Retorna todos os produtos com tipo MultipleProducts e nenhum filtro', () => {
+    const formData = {
+      selectedPreferences: [],
+      selectedFeatures: [],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+
+    const recommendations = recommendationService.getRecommendations(
+        formData,
+        mockProducts
+    );
+
+    expect(recommendations.length).toBeGreaterThan(0);
+  });
+
+  test('Retorna 1 recomendação com tudo marcado e SingleProduct', () => {
+    const formData = {
+      selectedPreferences: [
+        'Integração fácil com ferramentas de e-mail',
+        'Automação de marketing',
+        'Personalização de funis de vendas',
+        'Integração com chatbots',
+      ],
+      selectedFeatures: [
+        'Rastreamento de interações com clientes',
+        'Rastreamento de comportamento do usuário',
+        'Chat ao vivo e mensagens automatizadas',
+        'Formulários inteligentes',
+      ],
+      selectedRecommendationType: 'SingleProduct',
+    };
+
+    const recommendations = recommendationService.getRecommendations(
+        formData,
+        mockProducts
+    );
+
+    expect(recommendations).toHaveLength(1);
+  });
+
+  test('Retorna múltiplas recomendações com tudo marcado e MultipleProducts', () => {
+    const formData = {
+      selectedPreferences: [
+        'Integração fácil com ferramentas de e-mail',
+        'Automação de marketing',
+        'Personalização de funis de vendas',
+        'Integração com chatbots',
+      ],
+      selectedFeatures: [
+        'Rastreamento de interações com clientes',
+        'Rastreamento de comportamento do usuário',
+        'Chat ao vivo e mensagens automatizadas',
+        'Formulários inteligentes',
+      ],
+      selectedRecommendationType: 'MultipleProducts',
+    };
+
+    const recommendations = recommendationService.getRecommendations(
+        formData,
+        mockProducts
+    );
+
+    expect(recommendations.length).toBeGreaterThan(1);
   });
 });
